@@ -1,0 +1,73 @@
+
+.addProductContainer {
+    width: 100%;
+}
+.title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+    padding: 5px 0;
+    color: var(--purple-color);
+}
+.titleEdit {
+    color: transparent;
+}
+.formAddProduct {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+.inputContainerEdit {
+    display: none;
+}
+.inputContainer:last-child {
+    justify-content: end;
+}
+.inputContainer input {
+    outline: none;
+    padding: 2px;
+    color: var(--text-color);
+    width: 100%;
+}
+.inputContainer:last-child button{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: var(--purple-background);
+}
+.fetchingData {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+@media ( min-width: 481px ) and ( max-width: 1030px ) {
+    .formAddProduct {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media ( max-width: 480px ) {
+    .addProductContainer span {
+        font-size: 15px;
+    }
+    .inputContainer {
+        width: 100%;
+    }
+    .formAddProduct {
+        grid-template-columns: 1fr;
+        font-size: 14px;
+    }
+    .formAddProduct button {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}

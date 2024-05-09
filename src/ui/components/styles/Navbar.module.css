@@ -1,0 +1,167 @@
+.siteNavbar {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: background-color .7s ease;
+}
+.siteNavbarWhite{
+    background-color: white;
+}
+.menuContainer {
+    height: 8vh;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.linkMenu {
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    transition: background-color .7s ease;
+    padding: 6px 15px;
+}
+@media ( min-width: 1024px ) {
+    .linkMenu:hover {
+        background-color: var(--purple-background);
+    }
+}
+.linkMenuWhite {
+    color: white;
+}
+.linkMenuBlack {
+    color: var(--dark-color);
+}
+.logoDesktop {
+    height: 6vh;
+    width: 75%;
+}
+.logoDesktopBlack {
+    background-image: url(/img/logo-desktop-black.webp);
+}
+.logoDesktopWhite {
+    background-image: url(/img/logo-desktop-white.webp);
+}
+.iconsMenu {
+    height: 24px;
+    width: 24px;
+    padding: 10px;
+    position: relative;
+}
+.iconsMenu::after {
+    content: '';
+    height: 34px;
+    width: 34px;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    background-color: var(--purple-background);
+    transform: scaleY(0);
+    transition: transform .4s ease-in-out;
+    z-index: -1;
+}
+@media ( min-width: 1080px ) {
+    .iconsMenu:hover::after {
+        transform:  scaleY(1);
+    }    
+}
+.iconsMenu,
+.logoDesktop {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: background-image .7s ease;
+}
+.cartWhite {
+    background-image: url(/img/cart-white.webp);
+}
+.userWhite {
+    background-image: url(/img/user-white.webp);
+}
+.searchWhite {
+    background-image: url(/img/search-white.webp);
+}
+.cartBlack {
+    background-image: url(/img/cart-black.webp);
+}
+.userBlack {
+    background-image: url(/img/user-black.webp);
+}
+.searchBlack {
+    background-image: url(/img/search-black.webp);
+}
+.settingsWhite {
+    background-image: url(/img/settings-icon.webp);
+}
+.settingsBlack {
+    background-image: url(/img/settings-black.webp);
+}
+.logoutWhite {
+    background-image: url(/img/logout-icon.webp);
+}
+.logoutBlack {
+    background-image: url(/img/logout-black.webp);
+}
+.iconsMenu:nth-child(2) {
+    position: relative;
+}
+.cartNumberInactive {
+    display: none;
+}
+.cartNumberActive {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--purple-color);
+    line-height: 1;
+    font-weight: bolder;
+    background-color: greenyellow;
+    animation: growButton .3s ease-in-out forwards;
+}
+@keyframes growButton {
+    30% {
+        transform: scale(.7);
+    }
+    80% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@media (max-width: 700px) {
+    .menuContainer {
+        width: calc( 100vw / 3 );
+        gap: 10px;
+    }
+    .menuContainer a {
+        font-size: 10px;
+    }
+    .siteNavbar {
+        height: 7vh;
+    }
+    .logoDesktop {
+        height: 4vh;
+    }
+    .iconsMenu {
+        height: 13px;
+        width: 13px;
+    }
+}

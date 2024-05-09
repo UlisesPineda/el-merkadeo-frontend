@@ -1,0 +1,128 @@
+.itemContainer {
+    margin: 15vh 0 15vh 5vw;
+    min-height: 75vh;
+    width: 90vw;
+    color: white;
+    display: flex;
+    z-index: 1;
+}
+.imgContainer {
+    height: auto;
+    width: 55%;
+    display: flex;
+    justify-content: center;
+}
+.infoContainer {
+    height: auto;
+    width: 45%;
+    padding: 0 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.priceItem {
+    margin-top: 10px;
+    font-size: 30px;
+}
+.selectContainer {
+    margin-top: 20px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.selectContainer select {
+    margin-top: 7px;
+    width: 100%;
+    border: 1px solid white;
+    height: 38px;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    padding: 0 15px;
+}
+.selectContainer option {
+    background-color: #74697E;
+}
+.counterContainer {
+    border: 1px solid white;
+    width: 60%;
+    margin-top: 20px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.counterContainer button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+.counterContainer button {
+    font-size: 18px;
+}
+.addCartButton {
+    width: 60%;
+    margin-top: 20px;
+    background-color: var(--purple-background);
+    border: none;
+    outline: none;
+    height: 38px;
+    color: white;
+    cursor: pointer;
+}
+.animaTion {
+    animation: growButton .3s ease-in-out forwards;
+}
+.isSoldOutClass {
+    cursor: not-allowed;
+    opacity: .7;
+}
+@keyframes growButton {
+    30% {
+        transform: scale(.9);
+    }
+    80% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@media ( max-width: 480px ) {
+    .itemContainer {
+        flex-direction: column;
+    }
+    .imgContainer {
+        width: 95%;
+    }
+    .infoContainer {
+        width: 95%;
+        margin-top: 11%;
+    }
+    .infoContainer p {
+        font-size: 14px;
+    }
+    .priceItem {
+        font-size: 26px;
+    }
+    .counterContainer,
+    .addCartButton,
+    .selectContainer {
+        width: 90%;
+        height: 34px;
+        font-size: 12px;
+    }
+    .counterContainer span,
+    .counterContainer button {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,49 @@
+.sectionContainer {
+    position: absolute;
+    top: 15vh;
+    left: 5vw;
+    height: 75vh;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.textContainer {
+    width: 70%;
+    height: 100%;
+    padding: 0 20px;
+    overflow-y: scroll;
+}
+.textContainer::-webkit-scrollbar{
+    width: 10px;
+}
+.textContainer::-webkit-scrollbar-track {
+    background: transparent;
+    border: 1px solid var(--purple-background);
+    border-radius: 5px;
+}
+.textContainer::-webkit-scrollbar-thumb {
+    background-color: var(--purple-background);
+    border-radius: 5px;
+}
+.textContainer a {
+    display: block;
+    margin: 20px 0;
+    color: white;
+}
+@media ( max-width: 1024px ) {
+    .textContainer {
+        width: 80%;
+    }
+}
+@media ( max-width: 480px ) {
+    .textContainer{
+        width: 100%;
+        font-size: 12px;
+    }
+    .textContainer h2,
+    .textContainer h3,
+    .textContainer a {
+        font-size: 14px;
+    }
+}
