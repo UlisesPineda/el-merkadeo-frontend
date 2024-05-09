@@ -14,7 +14,7 @@ export const WhiteHeroeSection = ({ categories, handleSelectedCategory }) => {
     <div
         className={`${ whiteSectionContainer } ${ 'animationPage' }`}
     >
-        <h2>Visita Nuestra Selección Especial</h2>
+        <h1>Plantilla Profesional de Comercio Electrónico</h1>
         <div
             className={ cardContainer }
         >
