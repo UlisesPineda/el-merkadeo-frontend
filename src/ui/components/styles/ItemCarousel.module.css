@@ -73,7 +73,7 @@
 }
 @media ( max-width: 480px ) {
     .carouselContainer {
-        height: 50vh;
+        height: 38vh;
         width: 100%;
         top: 13vh;
         left: 5vw;

@@ -71,22 +71,22 @@
     background-repeat: no-repeat;
 }
 .masterCard {
-    background-image: url(img/mastercard.webp);
+    background-image: url(/img/mastercard.webp);
 }
 .visa {
-    background-image: url(img/visa.webp);
+    background-image: url(/img/visa.webp);
 }
 .amex {
-    background-image: url(img/amex.webp);
+    background-image: url(/img/amex.webp);
 }
 .paypal {
-    background-image: url(img/paypal.webp);
+    background-image: url(/img/paypal.webp);
 }
 .stripe {
-    background-image: url(img/stripe.webp);
+    background-image: url(/img/stripe.webp);
 }
 .secure {
-    background-image: url(img/secure.webp);
+    background-image: url(/img/secure.webp);
 }
 .disabled {
     opacity: .5;

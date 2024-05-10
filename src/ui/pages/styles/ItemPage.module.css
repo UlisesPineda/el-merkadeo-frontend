@@ -5,12 +5,14 @@
     color: white;
     display: flex;
     z-index: 1;
+    align-items: center;
 }
 .imgContainer {
-    height: auto;
+    height: 100%;
     width: 55%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .infoContainer {
     height: auto;
@@ -106,13 +108,13 @@
     }
     .infoContainer {
         width: 95%;
-        margin-top: 11%;
+        margin-top: 10px;
     }
-    .infoContainer p {
+    .infoContainer h3,
+    .infoContainer p, 
+    .infoContainer big {
+        margin: 3px 0;
         font-size: 14px;
-    }
-    .priceItem {
-        font-size: 26px;
     }
     .counterContainer,
     .addCartButton,
@@ -124,5 +126,17 @@
     .counterContainer span,
     .counterContainer button {
         font-size: 14px;
+    }
+    .selectContainer select {
+        margin-top: 0;
+    }
+    .selectContainer,
+    .counterContainer {
+        margin-top: 10px;
+        height: 31px;
+    }
+    .addCartButton {
+        margin-top: 10px;
+        height: 31px;
     }
 }
