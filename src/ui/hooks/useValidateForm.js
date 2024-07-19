@@ -3,21 +3,16 @@ import { useAlertMessage } from "./useAlertMessage.js";
 
 export const useValidateForm = () => {
 
-    const [isMounted, setIsMounted] = useState(true);
     const [files, setFiles] = useState([]);
+    const [isMounted, setIsMounted] = useState(true);
+    
     const { startOpenAlert } = useAlertMessage();
 
     const emailFormat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const passwordFormat = /^(?=.*[a-zA-Z0-9])(?=.*[/*\-+]).{8,16}$/;
-    const priceFormat = /^\d{1,3}(,\d{3})*\.\d{2}$/;
-    const quantityFormat = /^\d+$/;
     const nameFormat = /^[a-zA-Z\u00C0-\u02AF\s]{1,30}$/;
-    const descriptionFormat = /[a-zA-Z0-9áéíóúÁÉÍÓÚüÜñÑ.,\-$/]+/
     const textFormat = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ,¿?¡!,'\s]*$/;
-    const textArrayFormat = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s,]*$/;
     const sizeArrayFormat = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ0-9\s,]*$/;
-    // const urlFormat = /^(https?|ftp):\/\/(www\.)?([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})(\/[a-zA-Z0-9+&@#/%?=~_|!:,.;-]*)*(#([a-zA-Z0-9_-]+)?)?$/;
-    const urlFormat = /^\/[a-zA-Z0-9/-]+$/;
     const zipcodeFormat = /^\d{5}$/;
 
     const validateEmptyInput = ( form ) => {
@@ -105,88 +100,6 @@ export const useValidateForm = () => {
         return true;
     };
 
-    const validateAddCategoryForm = ( form ) => {
-        const { categoryDescription, categoryTitle } = form;
-        if ( !textFormat.test( categoryTitle ) ){
-            startOpenAlert({
-                title: 'El nombre de la categoría tiene caracteres no admitidos',
-                text: 'Corrige el nombre de la categoría',
-                button: true,
-            });
-            return false;
-        }
-        if ( !textFormat.test( categoryDescription ) ){
-            startOpenAlert({
-                title: 'La descripción de la categoría tiene caracteres no admitidos',
-                text: 'Corrige la descripción de la categoría',
-                button: true,
-            });
-            return false;
-        }
-        return true;
-    };
-
-    const validateAddProductForm = ( form ) => {
-        const { item, description, price, quantity, category, color, size } = form;
-        if ( !textFormat.test( item ) ) {
-            startOpenAlert({
-                title: 'El nombre del producto contiene caracteres que no son admitidos',
-                text: 'Corrige el nombre del producto',
-                button: true,
-            });
-            return false;
-        }
-        if ( !textFormat.test( description ) ) {
-            startOpenAlert({
-                title: 'La descripción del producto contiene caracteres que no son admitidos',
-                text: 'Corrige la descripción del producto',
-                button: true,
-            });
-            return false;
-        }
-        if ( !priceFormat.test( price ) ) {
-            startOpenAlert({
-                title: 'El formato de precio es incorrecto',
-                text: 'El precio debe tener el siguiente formato: 1,234.00',
-                button: true,
-            });
-            return false;
-        }
-        if ( !quantityFormat.test( quantity ) ) {
-            startOpenAlert({
-                title: 'Solo puedes agregar números enteros en cantidad de productos',
-                text: 'Verifica la cantidad de productos ingresada',
-                button: true,
-            });
-            return false;
-        }
-        if ( !textFormat.test( category ) ) {
-            startOpenAlert({
-                title: 'La categoría del producto contiene caracteres que no son admitidos',
-                text: 'Corrige la categoría del producto',
-                button: true,
-            });
-            return false;
-        }
-        if ( !textArrayFormat.test( color ) ) {
-            startOpenAlert({
-                title: 'El formato de los colores es incorrecto',
-                text: 'Usa solo texto y una coma para separar cada color ej: "Blanco Perla, Negro""',
-                button: true,
-            });
-            return false;
-        }
-        if ( !sizeArrayFormat.test( size ) ) {
-            startOpenAlert({
-                title: 'El formato de las tallas es incorrecto',
-                text: 'Separa cada talla por una coma, puedes usar números y letras ej: "36x, Chica, M"',
-                button: true,
-            });
-            return false;
-        }
-        return true;
-    };
-
     const validateSearchProductForm = ( form ) => {
         const { queryItem } = form;
         if ( !textFormat.test( queryItem ) ) {
@@ -196,56 +109,6 @@ export const useValidateForm = () => {
                 button: true,
             });
             return false;
-        }
-        return true;
-    };
-
-    const validateAddPromoForm = ( form ) => {
-        const { promoItem, promoDescription, urlPromo } = form;
-        if ( !textFormat.test( promoItem ) ) {
-            startOpenAlert({
-                title: 'El nombre de la promoción contiene caracteres que no son admitidos',
-                text: 'Corrige el nombre de la promoción',
-                button: true,
-            });
-            return false;
-        }
-        if ( !descriptionFormat.test( promoDescription ) ) {
-            startOpenAlert({
-                title: 'La descripción de la promoción contiene caracteres que no son admitidos',
-                text: 'Corrige la descripción de la promoción',
-                button: true,
-            });
-            return false;
-        }
-        if ( !urlFormat.test( urlPromo ) ) {
-            startOpenAlert({
-                title: 'El link de la promoción no es válido',
-                text: 'Busca un producto de tu catálogo, copia el link del producto y pégalo aquí',
-                button: true,
-            });
-            return false;
-        }
-        return true;
-    };
-
-    const validateAdminUserName = ( form ) => {
-        const { adminName } = form;
-        if ( adminName === '' ) {
-            startOpenAlert({
-                title: 'El campo de nombre de usuario está vacío',
-                text: 'Agrega el nuevo nombre de usuario',
-                button: true,
-            });
-            return false;    
-        }
-        if ( !nameFormat.test( adminName ) ) {
-            startOpenAlert({
-                title: 'Para el nombre no puedes usar caracteres especiales',
-                text: 'Corrige tu nuevo nombre de usuario',
-                button: true,
-            });
-            return false;    
         }
         return true;
     };
@@ -495,11 +358,7 @@ export const useValidateForm = () => {
         disableButtonForm,
         validateEmptyInput,
         validateLoginForm,  
-        validateAddProductForm,
         validateSearchProductForm,
-        validateAddPromoForm,
-        validateAddCategoryForm,
-        validateAdminUserName,
         validateUserEmail,
         validateUserPassword,
         validateSuscriberForm,

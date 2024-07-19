@@ -9,7 +9,6 @@ import {
     menuTitleContainer,
     menuLinksContainer,
 } from './styles/LayoutShopPage.module.css';
-import { returnToTop } from '../../helpers';
   
 export const LayoutShopPage = ({ children }) => {
 
@@ -35,7 +34,6 @@ export const LayoutShopPage = ({ children }) => {
                     <NavLink 
                       key={ category._id }
                       to={ category.categoryUrl }
-                      onClick={ returnToTop() }
                     >
                       { category.categoryTitle }
                     </NavLink>

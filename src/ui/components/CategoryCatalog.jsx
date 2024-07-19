@@ -6,7 +6,6 @@ import {
     cardContainer,
     cardItem, 
 } from './styles/CategoryCatalog.module.css';
-import { returnToTop } from '../../helpers';
 
 export const CategoryCatalog = ({ products, keyValue }) => {
 
@@ -27,7 +26,6 @@ export const CategoryCatalog = ({ products, keyValue }) => {
                             >
                                 <Link
                                     to={`/tienda/${card.normalizedUrlCategory}/${card.url}`}
-                                    onClick={ returnToTop }
                                 >
                                     <img 
                                         src={ card.images[0].url }

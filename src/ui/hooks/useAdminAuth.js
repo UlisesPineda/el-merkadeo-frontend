@@ -1,0 +1,90 @@
+import elMerkadeoAPI from "../../api/elMerkadeoAPI";
+import { useAlertMessage } from "./useAlertMessage";
+
+
+export const useAdminAuth = () => {
+
+    const { startOpenAlert } = useAlertMessage();
+
+    const startActivateAdmin = async( token ) => {
+        try {
+            const { data } = await elMerkadeoAPI.get(`auth-admin/activate-admin/${ token }`);
+            startOpenAlert({
+                title: data.message,
+                text: data.text,
+                button: true,
+            });
+            return true;
+        } catch (error) {
+            console.log(error);
+            startOpenAlert({
+                title: error.response.data.message,
+                text: error.response.data.text,
+                button: true,
+            });
+            return false;
+        }
+    };
+
+    const startAdminLogin = async( form, setIsDisabled ) => {
+        const { email, password } = form;
+        try {
+            const { data } = await elMerkadeoAPI.post('/auth-admin/login-admin', { email, password });
+            // localStorage.setItem('token', data.authToken);
+            // localStorage.setItem('isAdminAuth', true);
+
+            // document.cookie = `auth-token=${ data.authToken }; max-age=1200; domain=.conexiapoint.com; path=/; samesite=none; secure`;
+            document.cookie = `auth=token=${ data.authToken }; max-age=1200`;
+            window.location.href = import.meta.env.VITE_ADMIN_SITE_URL;
+            return true;
+        } catch (error) {
+            console.log( error );
+            startOpenAlert({
+                title: error.response.data.message,
+                text: error.response.data.text,
+                button: true,
+            });
+            setIsDisabled( false );
+            return false;
+        }
+    };  
+
+    const reqChangeAdminPassword = async( form, setIsDisabled ) => {
+        try {
+            await elMerkadeoAPI.post('/auth-admin/request-reset-password', form);
+            startOpenAlert({
+                title: 'El reestablecimento de tu password fue procesado exitosamente',
+                text: 'Te hemos enviado un correo con las instrucciones para reestablecer tu password',
+                button: true,
+            });
+            return true;
+        } catch (error) {
+            console.log( error );
+            if ( error.response.status === 404 ) {
+                startOpenAlert({
+                    title: error.response.data.message,
+                    text: 'Ingresa tu correo de administrador',
+                    button: true,
+                });
+                setIsDisabled( false );
+                return false;
+            }
+            else {
+                startOpenAlert({
+                    title: 'Hubo un error al solicitar el nuevo password',
+                    text: 'Intenta más tarde',
+                    button: true,
+                });
+                setIsDisabled( false );
+                return false;
+            }
+        }
+    };
+
+
+    return {
+        startActivateAdmin,
+        startAdminLogin,
+        reqChangeAdminPassword,
+    };
+};

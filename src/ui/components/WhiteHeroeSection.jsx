@@ -12,7 +12,7 @@ import {
 export const WhiteHeroeSection = ({ categories, handleSelectedCategory }) => {
   return (
     <div
-        className={`${ whiteSectionContainer } ${ 'animationPage' }`}
+        className={`animationPage ${ whiteSectionContainer }`}
     >
         <h1>Plantilla Profesional de Comercio Electrónico</h1>
         <div

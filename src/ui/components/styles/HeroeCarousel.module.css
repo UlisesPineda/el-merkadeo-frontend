@@ -1,9 +1,9 @@
 .carouselContainer {
-    height: 77vh;
-    width: 84vw;
+    height: 86vh;
+    width: 96%;
     position: absolute;
-    top: 15vh;
-    left: 7.5vw;
+    top: 10vh;
+    left: 2%;
 }
 .carouselWrapper {
     position: relative;
@@ -42,7 +42,6 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-    /* cursor: pointer; */
     z-index: 1;
 }
 .cardTextContainer {

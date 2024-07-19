@@ -17,7 +17,6 @@ import {
   disabled,
 } from './styles/Footer.module.css';
 
-import { returnToTop } from '../../helpers';
 import { useForm, useSuscriberData, useValidateForm } from '../hooks';
 
 export const Footer = () => {
@@ -123,7 +122,6 @@ export const Footer = () => {
             <h4>Enlaces del Sitio</h4>
             <Link
               to='/login-admin'
-              onClick={ returnToTop }
               className={ linkFooter }
               title='Inicia sesión en tu panel de administrador'
             >
@@ -131,7 +129,6 @@ export const Footer = () => {
             </Link>
             <Link
               to='/terminos-y-condiciones'
-              onClick={ returnToTop }
               className={ linkFooter }
               title='Consulta los términos y condiciones'
             >
@@ -139,7 +136,6 @@ export const Footer = () => {
             </Link>
             <Link
               to='/politica-de-cookies'
-              onClick={ returnToTop }
               className={ linkFooter }
               title='Consulta nuestra política de cookies'
             >
@@ -147,7 +143,6 @@ export const Footer = () => {
             </Link>
             <Link
               to='/politica-de-privacidad'
-              onClick={ returnToTop }
               className={ linkFooter }
               title='Consulta nuestra política de privacidad'
             >

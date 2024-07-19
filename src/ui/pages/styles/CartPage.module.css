@@ -8,19 +8,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: auto;
+}
+.cartContainer {
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple-background) var(--grey-background);
 }
 .cartContainer::-webkit-scrollbar{
     width: 10px;
 }
 .cartContainer::-webkit-scrollbar-track {
-    background: transparent;
-    border: 1px solid var(--purple-background);
-    border-radius: 5px;
+    background-color: var(--grey-background);
 }
 .cartContainer::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: 1px solid var(--grey-background);
     background-color: var(--purple-background);
-    border-radius: 5px;
 }
 .cartContainer h2 span {
     color: var(--purple-color);

@@ -9,6 +9,6 @@ export const getEnvVariables = () => {
         VITE_STORAGE_BUCKET: import.meta.env.VITE_STORAGE_BUCKET,
         VITE_MESSAGING_SENDER_ID: import.meta.env.VITE_MESSAGING_SENDER_ID,
         VITE_APP_ID: import.meta.env.VITE_APP_ID,
-        VITE_STRIPE_PUBLIC_KEY: import.meta.env.VITE_STRIPE_PUBLIC_KEY,
+        VITE_ADMIN_SITE_URL: import.meta.env.VITE_ADMIN_SITE_URL,
     };
 };

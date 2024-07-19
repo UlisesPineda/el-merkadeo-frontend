@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useProductData } from '../../admin/hooks';
 import { CategoryCatalog } from '../components';
-import { useForm, useValidateForm } from '../hooks';
+import { useForm, useProductData, useValidateForm } from '../hooks';
 import { 
   searchContainer, 
   formContainer,

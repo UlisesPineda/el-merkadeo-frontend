@@ -17,10 +17,7 @@ import {
   paginationDotActive,
 } from './styles/HeroeCarousel.module.css';
 
-
-export const HeroeCarousel = ({
-  promos,
-}) => {
+export const HeroeCarousel = ({ promos }) => {
 
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
@@ -50,7 +47,7 @@ export const HeroeCarousel = ({
         slideRight();
       }, 4000);
   });
-  
+
   return (
     <div 
       className={`${ carouselContainer } ${ 'animationPage' }`}

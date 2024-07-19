@@ -27,7 +27,6 @@ import {
   cartNumberActive,
 } from './styles/Navbar.module.css';
 
-import { returnToTop } from '../../helpers';
 import { useUserAuth } from '../hooks';
 import { calculateValue } from '../helpers/calculateValue';
 
@@ -44,7 +43,6 @@ export const Navbar = () => {
   const totalProducts = calculateValue( products );
 
   const startLogoutUser = () => {
-    returnToTop();
     logoutUser();
   };
 
@@ -69,13 +67,12 @@ export const Navbar = () => {
       `}>
         <div className={ menuContainer }>
           <NavLink 
-          to='/tienda' 
-          title='Catálogo 2024'
-          onClick={ returnToTop }
-          className={`
-            ${ linkMenu }
-            ${ isScrolled ? linkMenuBlack : linkMenuWhite }
-          `}
+            to='/tienda' 
+            title='Catálogo 2024'
+            className={`
+              ${ linkMenu }
+              ${ isScrolled ? linkMenuBlack : linkMenuWhite }
+            `}
           >
             COLECCIÓN 2024
           </NavLink>
@@ -84,7 +81,6 @@ export const Navbar = () => {
           <Link 
             to='/'
             title='El Merkadeo'
-            onClick={ returnToTop }
             className={`
               ${ logoDesktop } 
               ${ isScrolled ? logoDesktopBlack : logoDesktopWhite }
@@ -95,7 +91,6 @@ export const Navbar = () => {
           <Link 
             to='/buscar'
             title='Buscar en la tienda'
-            onClick={ returnToTop }
             className={`
               ${ iconsMenu } 
               ${ isScrolled ? searchBlack : searchWhite }
@@ -104,7 +99,6 @@ export const Navbar = () => {
           <Link
             to='/carrito' 
             title='Carrito'
-            onClick={ returnToTop }
             className={`
               ${ iconsMenu } 
               ${ isScrolled ? cartBlack : cartWhite }
@@ -124,7 +118,6 @@ export const Navbar = () => {
                   <Link
                     to='configuracion'
                     title='Administra tu cuenta'
-                    onClick={ returnToTop }
                     className={`
                       ${ iconsMenu }
                       ${ isScrolled ? settingsBlack : settingsWhite }
@@ -144,7 +137,6 @@ export const Navbar = () => {
                 <Link
                   to='/login' 
                   title='Inicia sesión'
-                  onClick={ returnToTop }
                   className={`
                     ${ iconsMenu } 
                     ${ isScrolled ? userBlack : userWhite }

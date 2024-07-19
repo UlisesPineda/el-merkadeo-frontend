@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import { ElMerkadeoApp } from "../ElMerkadeoApp";
 import { 
@@ -25,19 +25,14 @@ import {
     TermsPage
 } from "../ui/pages";
 import { 
-    AdminLayuot 
-} from "../admin/components";
-import { 
-    AdminDashboardPage, 
-    AdminProductsPage, 
-    AdminSettingsPage 
-} from "../admin/pages";
-import { useAdminAuth, useCategoryData, useProductData, usePromoData } from "../admin/hooks";
-import { useUserAuth } from "../ui/hooks";
+    useCategoryData, 
+    useProductData, 
+    usePromoData, 
+    useUserAuth 
+} from "../ui/hooks";
 
 export const AppRouter = () => {
 
-    const { checkAdminAuthToken } = useAdminAuth();
     const { checkUserAuthToken } = useUserAuth();
     const { getCategories } = useCategoryData();
     const { gettProducts } = useProductData();
@@ -49,25 +44,28 @@ export const AppRouter = () => {
         textMessage,
     } = useSelector( state => state.alertMessage );
     const { isUserAuth } = useSelector( state => state.userAuth );
-    const { isAdminAuth } = useSelector( state => state.adminAuth );
     const { isLoadedUserProds } = useSelector( state => state.productsUser );
 
     useEffect(() => {
         isUserAuth && checkUserAuthToken();
-        isAdminAuth && checkAdminAuthToken();
         getPromos();
         gettProducts();
         getCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const { pathname } = useLocation();
+
+    useLayoutEffect(() => {
+        window.scrollTo(0,0);
+    }, [ pathname ]);
+
+
     return (
         !isLoadedUserProds 
             ? 
-            <LoadingPage />
+                <LoadingPage />
             :
-            !isAdminAuth
-                ?
                 <>
                     <Layout>
                         <Routes>
@@ -91,24 +89,6 @@ export const AppRouter = () => {
                             }
                         </Routes>
                     </Layout>
-                    {
-                        isAlertMessage && 
-                        <AlertMessage 
-                            titleMessage={ titleMessage } 
-                            textMessage={ textMessage }
-                        />
-                    }
-                </>
-                :
-                <>
-                    <AdminLayuot>
-                        <Routes>
-                            <Route path="/admin/dashboard" element={ <AdminDashboardPage /> } />
-                            <Route path="/admin/productos" element={ <AdminProductsPage /> } />
-                            <Route path="/admin/configuracion" element={ <AdminSettingsPage /> } />
-                            <Route path="/*" element={ <Navigate to="/admin/dashboard" /> } />
-                        </Routes>
-                    </AdminLayuot>
                     {
                         isAlertMessage && 
                         <AlertMessage 

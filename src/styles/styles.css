@@ -23,6 +23,22 @@ body {
     background-size: cover;
     background-position: center;
 }
+html {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--purple-background) var(--grey-background);
+}
+html::-webkit-scrollbar {
+    width: 10px;
+}
+html::-webkit-scrollbar-track {
+    background-color: var(--grey-background);
+}
+html::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: 1px solid var(--grey-background);
+    background-color: var(--purple-background);
+}
+ 
 .imageHeroeContainer {
     height: 100vh;
     width: 100%;

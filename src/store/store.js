@@ -1,16 +1,21 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { adminAuthSlice, alertMessageSlice, cartSlice, productsAdminSlice, productsUserSlice, promoSlice, userAuthSlice } from "./slices";
-import { categorySlice } from "./slices/categorySlice";
+
+import { 
+    alertMessageSlice, 
+    cartSlice, 
+    productsUserSlice, 
+    promoSlice, 
+    userAuthSlice, 
+    categorySlice 
+} from "./slices";
 
 export const store = configureStore({
     reducer: {
-        userAuth: userAuthSlice.reducer,
-        productsUser: productsUserSlice.reducer,
-        category: categorySlice.reducer,
-        promo: promoSlice.reducer,
-        alertMessage: alertMessageSlice.reducer,
-        adminAuth: adminAuthSlice.reducer,
-        productAdmin: productsAdminSlice.reducer,
         cart: cartSlice.reducer,
+        promo: promoSlice.reducer,
+        userAuth: userAuthSlice.reducer,
+        category: categorySlice.reducer,
+        productsUser: productsUserSlice.reducer,
+        alertMessage: alertMessageSlice.reducer,
     },
 });

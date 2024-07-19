@@ -4,3 +4,7 @@ export * from './useForm';
 export * from './useSuscriberData';
 export * from './useUserAuth';
 export * from './useCartData';
+export * from './useCategoryData';
+export * from './useProductData';
+export * from './usePromoData';
+export * from './useAdminAuth';

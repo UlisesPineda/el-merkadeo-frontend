@@ -13,7 +13,7 @@ export const TermsPage = () => {
           className={ textContainer }
         >
           <h2>TÉRMINOS Y CONDICIONES DEL SERVICIO</h2>
-          <p>Por favor, lee atentamente estos Términos y Condiciones de Uso antes de utilizar el sitio web El Merkadeo (www.elmerkadeo.com), en adelante "El Servicio".</p>
+          <p>Por favor, lee atentamente estos Términos y Condiciones de Uso antes de utilizar el sitio web El Merkadeo (www.elmerkadeo.com), en adelante El Servicio.</p>
           <p>Tu acceso y uso del Servicio están condicionados a tu aceptación y cumplimiento de estos Términos. Estos Términos se aplican a todos los visitantes, usuarios y otras personas que accedan o utilicen el Servicio.</p>
           <p>Al acceder o utilizar el Servicio, aceptas expresamente, estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte de los términos, entonces no podrás acceder al Servicio.</p>
           <h3>CUENTAS</h3>
@@ -23,7 +23,7 @@ export const TermsPage = () => {
           <h3>INFORMACIÓN DEL USUARIO</h3>
           <p>Al utilizar el Servicio, aceptas proporcionar información precisa, completa y actualizada, incluyendo tu nombre, dirección y dirección de correo electrónico para completar tu transacción. Nos reservamos el derecho de rechazar cualquier pedido que no proporcione esta información de manera precisa y completa.</p>
           <h3>PAGOS</h3>
-          <p>El Servicio puede utilizar servicios de pago de terceros para procesar pagos ("Servicios de Pago"). Al utilizar los Servicios de Pago, aceptas estar sujeto a los términos y condiciones de dichos servicios, además de estos Términos y Condiciones.</p>
+          <p>El Servicio puede utilizar servicios de pago de terceros para procesar pagos (Servicios de Pago). Al utilizar los Servicios de Pago, aceptas estar sujeto a los términos y condiciones de dichos servicios, además de estos Términos y Condiciones.</p>
           <h3>ENLACE A OTROS SITIOS WEB</h3>
           <p>Nuestro Servicio puede contener enlaces a sitios web de terceros o servicios que no son propiedad ni están controlados por www.elmerkadeo.com. No tenemos control ni asumimos responsabilidad por el contenido, políticas de privacidad o prácticas de sitios web o servicios de terceros. Reconoces y aceptas que no seremos responsables, directa o indirectamente, por cualquier daño o pérdida causada o presuntamente causada por o en conexión con el uso de o la confianza en cualquier contenido, bienes o servicios disponibles en o a través de dichos sitios web o servicios.</p>
           <h3>CAMBIOS</h3>

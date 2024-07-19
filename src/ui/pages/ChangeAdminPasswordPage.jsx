@@ -7,8 +7,7 @@ import {
     disabled,
     linkLoginAdmin,
 } from './styles/ChangeAdminPasswordPage.module.css';
-import { useForm, useValidateForm } from '../hooks';
-import { useAdminAuth } from '../../admin/hooks';
+import { useAdminAuth, useForm, useValidateForm } from '../hooks';
 
 export const ChangeAdminPasswordPage = () => {
 

@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-
 import {
     activateAdminSection,
     activateAdminButton,
 } from './styles/ActivateAdminPage.module.css';
-import { useAdminAuth } from '../../admin/hooks';
-
+import { useAdminAuth } from '../hooks';
 
 export const ActivateAdminPage = () => {
 

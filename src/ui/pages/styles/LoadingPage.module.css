@@ -12,17 +12,17 @@
     width: 160px;
     border-radius: 50%;
     overflow: hidden;
-    transform: scale(.5);
+    transform: scale(.2);
     opacity: 0;
     transition: transform ease-in-out, opacity ease-in-out;
-    animation: growLogo 1s forwards;
+    animation: growLogo 1.6s forwards;
 }
 .imgContainer img {
     height: 100%;
 }
 @keyframes growLogo {
     100% {
-        transform: scale(1) rotate(360deg);
+        transform: scale(1);
         opacity: 1;
     }
 }

@@ -4,8 +4,7 @@ import { LoginForm } from '../components';
 import {
   loginFormContainer,
 } from './styles/LoginAdminPage.module.css';
-import { useAdminForm, useForm, useValidateForm } from '../hooks';
-import { useAdminAuth } from '../../admin/hooks';
+import { useAdminAuth, useAdminForm, useForm, useValidateForm } from '../hooks';
 import { ResetPasswordForm } from '../components/ResetPasswordForm';
 
 
