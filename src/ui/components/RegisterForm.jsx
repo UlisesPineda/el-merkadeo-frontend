@@ -11,30 +11,17 @@ import { useState } from 'react';
 
 export const RegisterForm = ({ handleTypeForm }) => {
 
-    const [isMounted, setIsMounted] = useState( false );
-    const [isDisabled, setIsDisabled] = useState( false );
     const [isAccepted, setIsAccepted] = useState( false );
 
     const { registerUser } = useUserAuth();
     const { validateEmptyInput, validateTermsInput, validateRegisterUserForm } = useValidateForm();
-    const { form, resetForm, handleChange } = useForm({
+    const { form, handleChange, isDisabled, enableActions, disabledActions } = useForm({
         userName: '',
         email: '',
         password: '',
         confirmPassword: '',
     });
     const { userName, email, password, confirmPassword } = form;
-
-    const disableActions = () => {
-        setIsDisabled( true );
-        return true;
-    };
-
-    const enableActions = () => {
-        setIsMounted( !isMounted );
-        setIsDisabled( false );
-        resetForm();
-    };
 
     const handleCheckboxValue = (e) => {
         setIsAccepted( e.target.checked );
@@ -45,7 +32,7 @@ export const RegisterForm = ({ handleTypeForm }) => {
         validateEmptyInput( form ) &&
             validateTermsInput( isAccepted ) &&
                 validateRegisterUserForm( form ) &&
-                    disableActions() &&
+                    disabledActions() &&
                         await registerUser( form, isAccepted ) &&
                             enableActions();
     };
@@ -108,7 +95,7 @@ export const RegisterForm = ({ handleTypeForm }) => {
             </label>
             <input 
                 onChange={ handleCheckboxValue }
-                key={ isMounted }
+                key={ isDisabled }
                 type="checkbox" 
                 id='terms'
             />

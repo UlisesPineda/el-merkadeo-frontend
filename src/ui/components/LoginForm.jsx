@@ -8,18 +8,45 @@ import {
     adminLinkForm,
     forgotLink,
 } from './styles/LoginForm.module.css';
+import { useAdminAuth, useForm, useUserAuth, useValidateForm } from '../hooks';
 
 export const LoginForm = ({ 
-  handleLogin, 
-  handleTypeForm, 
-  handleChange, 
-  email, 
-  password, 
-  isDisabled, 
-  handleResetPassForm, 
+  isUserActive,
+  handleTypeForm,
+  handleResetPassForm,   
 }) => {
-
   const { pathname } = useLocation();
+
+  const { loginAdmin } = useAdminAuth();
+  const { loginUser } = useUserAuth();
+  const { validateEmptyInput, validateLoginForm } = useValidateForm();
+  const { 
+    form, 
+    handleChange, 
+    disabledActions, 
+    enableActions, 
+    isDisabled,
+    setIsDisabled
+  } = useForm({ email: '', password: '' });
+
+  const actionForm = async() => {
+    if( isUserActive ) {
+      return await loginUser( form );
+    }
+    else {
+      return await loginAdmin( form );
+    }
+  };
+
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    validateEmptyInput( form ) &&
+      validateLoginForm( form ) &&
+        disabledActions() &&
+          await actionForm() ?
+            enableActions() :
+              setIsDisabled( false );
+  };
 
   return (
     <form
@@ -32,7 +59,7 @@ export const LoginForm = ({
         name="email"
         id="email" 
         placeholder="Correo"
-        value={ email }
+        value={ form.email }
         onChange={ handleChange }
         autoComplete='on'
       />
@@ -42,7 +69,7 @@ export const LoginForm = ({
         name="password"
         id="password"
         placeholder="Password"
-        value={ password }
+        value={ form.password }
         onChange={ handleChange }
       />
       <button
@@ -76,12 +103,7 @@ export const LoginForm = ({
 };
 
 LoginForm.propTypes = {
-    handleLogin: PropTypes.func.isRequired,
-    handleChange: PropTypes.func.isRequired,
+    isUserActive: PropTypes.bool,
     handleTypeForm: PropTypes.func,
     handleResetPassForm: PropTypes.func,
-
-    email: PropTypes.string,
-    password: PropTypes.string,
-    isDisabled: PropTypes.bool,
 };

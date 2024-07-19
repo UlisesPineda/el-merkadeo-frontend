@@ -26,7 +26,7 @@ export const useAdminAuth = () => {
         }
     };
 
-    const startAdminLogin = async( form, setIsDisabled ) => {
+    const loginAdmin = async( form ) => {
         const { email, password } = form;
         try {
             const { data } = await elMerkadeoAPI.post('/auth-admin/login-admin', { email, password });
@@ -44,12 +44,11 @@ export const useAdminAuth = () => {
                 text: error.response.data.text,
                 button: true,
             });
-            setIsDisabled( false );
             return false;
         }
     };  
 
-    const reqChangeAdminPassword = async( form, setIsDisabled ) => {
+    const reqChangeAdminPassword = async( form ) => {
         try {
             await elMerkadeoAPI.post('/auth-admin/request-reset-password', form);
             startOpenAlert({
@@ -66,7 +65,6 @@ export const useAdminAuth = () => {
                     text: 'Ingresa tu correo de administrador',
                     button: true,
                 });
-                setIsDisabled( false );
                 return false;
             }
             else {
@@ -75,7 +73,6 @@ export const useAdminAuth = () => {
                     text: 'Intenta más tarde',
                     button: true,
                 });
-                setIsDisabled( false );
                 return false;
             }
         }
@@ -84,7 +81,7 @@ export const useAdminAuth = () => {
 
     return {
         startActivateAdmin,
-        startAdminLogin,
+        loginAdmin,
         reqChangeAdminPassword,
     };
 };

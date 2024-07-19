@@ -5,14 +5,44 @@ import {
     disabledButton,
     forgotLink,
 } from './styles/LoginForm.module.css';
+import { useAdminAuth, useForm, useUserAuth, useValidateForm } from '../hooks';
 
 export const ResetPasswordForm = ({
-    handleResetPassword, 
-    handleAdminChange, 
-    email, 
-    isDisabled, 
-    handleResetPassForm,   
+    handleTypeForm,
+    isUserActive,   
 }) => {
+
+    const { reqChangeUserPassword } = useUserAuth();
+    const { reqChangeAdminPassword } = useAdminAuth();
+    const { validateEmptyInput, validateUserEmail } = useValidateForm();
+    const { 
+        form, 
+        handleChange, 
+        isDisabled, 
+        disabledActions, 
+        enableActions, 
+        setIsDisabled 
+    } = useForm({ email: '' });
+
+    const actionForm = async() => {
+        if( isUserActive ) {
+          return await reqChangeUserPassword( form );
+        }
+        else {
+          return await reqChangeAdminPassword( form );
+        }
+      };    
+
+    const handleResetPassword = async(e) => {
+        e.preventDefault();
+        validateEmptyInput( form ) &&
+          validateUserEmail( form ) &&
+            disabledActions() &&
+              await actionForm() ?
+                enableActions() :
+                    setIsDisabled( false );
+      };
+
   return (
     <form
         className={`animationPage ${ formContainer }`}
@@ -24,8 +54,8 @@ export const ResetPasswordForm = ({
             name="email"
             id="email" 
             placeholder="Correo de administrador"
-            value={ email }
-            onChange={ handleAdminChange }
+            value={ form.email }
+            onChange={ handleChange }
             autoComplete='on'
         />
         <button
@@ -37,7 +67,7 @@ export const ResetPasswordForm = ({
         </button>
         <span
             className={ forgotLink }
-            onClick={ handleResetPassForm }
+            onClick={ handleTypeForm }
         >
             Iniciar Sesión
         </span>
@@ -46,10 +76,6 @@ export const ResetPasswordForm = ({
 };
 
 ResetPasswordForm.propTypes = {
-    handleResetPassword: PropTypes.func.isRequired,
-    handleAdminChange: PropTypes.func,
-    handleResetPassForm: PropTypes.func,
-
-    email: PropTypes.string,
-    isDisabled: PropTypes.bool,
+    isUserActive: PropTypes.bool,
+    handleTypeForm: PropTypes.func,
 };
