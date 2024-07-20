@@ -26,6 +26,9 @@
     }
 }
 @media ( max-width: 480px ) {
+    .whiteSectionContainer h1 {
+        font-size: 14px;
+    }
     .whiteSectionContainer h2,
     .cardCategory h3 {
         font-size: 16px;
