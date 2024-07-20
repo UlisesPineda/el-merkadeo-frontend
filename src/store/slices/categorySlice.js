@@ -12,14 +12,6 @@ export const categorySlice = createSlice({
         state.isLoadedCategories = true;
         state.categories = payload;
       },
-      onAddCategory: ( state, { payload } ) => {
-        state.isLoadedCategories = true;
-        state.categories = [...state.categories, payload]
-      },
-      onDeleteCategory: ( state, { payload } ) => {
-         state.isLoadedCategories = true;
-         state.categories = payload;
-      },
       onSelectedCategory: ( state, { payload } ) => {
          state.isLoadedCategories = true;
          state.categories = [...state.categories];
@@ -30,7 +22,5 @@ export const categorySlice = createSlice({
 
 export const { 
     onLoadedCategories,
-    onAddCategory,
-    onDeleteCategory,
     onSelectedCategory,
  } = categorySlice.actions;

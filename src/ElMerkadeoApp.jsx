@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { HeroeCarousel, WhiteHeroeSection } from './ui/components';
 
 import { onSelectedCategory } from './store/slices';
-import { returnToTop } from './helpers';
 
 
 export const ElMerkadeoApp = () => {
@@ -18,7 +17,6 @@ export const ElMerkadeoApp = () => {
     const category = e.target.getAttribute('data-category');
     const selectedCategory = totalProductsUser.filter( products => products.category === category );
     dispatch( onSelectedCategory( selectedCategory ) );
-    returnToTop();
   };
 
   return (

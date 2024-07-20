@@ -13,10 +13,6 @@ export const productsUserSlice = createSlice({
          state.isLoadedUserProds = true;
          state.totalProductsUser = payload;
       },
-      onAddedProduct: ( state, { payload } ) => {
-         state.isLoadedUserProds = true;
-         state.totalProductsUser = [...state.totalProductsUser, payload];
-      },
       onSearchProductUser: ( state, { payload } ) => {
          state.isLoadedUserProds = true;
          state.totalProductsUser = [...state.totalProductsUser];
@@ -28,6 +24,5 @@ export const productsUserSlice = createSlice({
 
 export const { 
    onLoadedProducts,
-   onAddedProduct,
    onSearchProductUser,
  } = productsUserSlice.actions;

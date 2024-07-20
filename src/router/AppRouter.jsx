@@ -33,9 +33,11 @@ import {
 
 export const AppRouter = () => {
 
+    const { pathname } = useLocation();
+
     const { checkUserAuthToken } = useUserAuth();
     const { getCategories } = useCategoryData();
-    const { gettProducts } = useProductData();
+    const { getProducts } = useProductData();
     const { getPromos } = usePromoData();
 
     const { 
@@ -49,12 +51,10 @@ export const AppRouter = () => {
     useEffect(() => {
         isUserAuth && checkUserAuthToken();
         getPromos();
-        gettProducts();
+        getProducts();
         getCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const { pathname } = useLocation();
 
     useLayoutEffect(() => {
         window.scrollTo(0,0);

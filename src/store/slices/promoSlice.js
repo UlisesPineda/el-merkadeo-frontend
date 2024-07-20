@@ -11,14 +11,9 @@ export const promoSlice = createSlice({
         state.isLoadedPromos = true;
         state.promos = payload;
       },
-      onAddedPromo: ( state, { payload } ) => {
-        state.isLoadedPromos = true;
-        state.promos = [...state.promos, payload];
-      },
    }
 });
 
 export const { 
     onLoadedPromos,
-    onAddedPromo,
 } = promoSlice.actions;

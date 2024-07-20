@@ -6,7 +6,7 @@
     width: 90vw;
     display: flex;
     justify-content: center;
-    color: white;
+    color: var(--text-color);
 }
 .textContainer {
     width: 70%;
@@ -32,7 +32,7 @@
 .textContainer a {
     display: block;
     margin: 20px 0;
-    color: white;
+    color: var(--text-color);
 }
 @media ( max-width: 1024px ) {
     .textContainer {

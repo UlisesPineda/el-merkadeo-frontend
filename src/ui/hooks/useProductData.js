@@ -9,7 +9,8 @@ export const useProductData = () => {
     const { startOpenAlert } = useAlertMessage();
 
     const dispatch = useDispatch();
-    const gettProducts = async() => {
+
+    const getProducts = async() => {
         try {
             const { data } = await elMerkadeoAPI.get('products/get-products');
             dispatch( onLoadedProducts( data.catalog ) );
@@ -45,7 +46,7 @@ export const useProductData = () => {
     };
 
     return {
-        gettProducts,
+        getProducts,
         searchProduct,
     };
 };
