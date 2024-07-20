@@ -131,7 +131,7 @@ export const CartPage = () => {
           {
             isUserAuth 
               ?
-                <h2>Carrito de <span> { user.userName } </span></h2>
+                <h2>Hola <span> { user.userName } </span>, estos son tus pedidos</h2>
               :
                 <h2>Carrito de Compras</h2>
           }
@@ -142,58 +142,61 @@ export const CartPage = () => {
               className={ itemBox }
             >
               {
-                userCart.map(
-                  ( item, i ) => {
-                    return (
-                      <div
-                        key={ i }
-                        className={ itemContainer }
-                      >
-                        <img 
-                          className={ itemImg }
-                          src={ item.image }
-                          alt={ item.itemTitle } 
-                        />
-                        <div  
-                          className={ itemDescription }
-                        >
-                          { item.itemTitle }
-                        </div>
-                        <div  
-                          className={ itemColor }
-                        >
-                          { item.color }
-                        </div>
-                        <div  
-                          className={ itemSize }
-                        >
-                          { item.size }
-                        </div>
+                userCart.length ?
+                  userCart.map(
+                    ( item, i ) => {
+                      return (
                         <div
-                          className={ itemPrice }
+                          key={ i }
+                          className={ itemContainer }
                         >
-                          $ { item.price }
-                        </div>
-                        <div
-                          className={ itemQuantity }
-                        >
-                          { item.quantity }
-                        </div>
-                        <div
-                          className={ itemDeleteIcon }
-                        >
-                          <button
-                            data-id={ item.prductId }
-                            onClick={ handleDeleteCartItem }
+                          <img 
+                            className={ itemImg }
+                            src={ item.image }
+                            alt={ item.itemTitle } 
+                          />
+                          <div  
+                            className={ itemDescription }
                           >
-                            X
+                            { item.itemTitle }
+                          </div>
+                          <div  
+                            className={ itemColor }
+                          >
+                            { item.color }
+                          </div>
+                          <div  
+                            className={ itemSize }
+                          >
+                            { item.size }
+                          </div>
+                          <div
+                            className={ itemPrice }
+                          >
+                            $ { item.price }
+                          </div>
+                          <div
+                            className={ itemQuantity }
+                          >
+                            { item.quantity }
+                          </div>
+                          <div
+                            className={ itemDeleteIcon }
+                          >
+                            <button
+                              data-id={ item.prductId }
+                              onClick={ handleDeleteCartItem }
+                            >
+                              X
 
-                          </button>
-                        </div>
-                      </div>      
-                    )
-                  }
-                )
+                            </button>
+                          </div>
+                        </div>      
+                      )
+                    }
+                  )
+                :
+                  <h3>Aún no has agreado productos al carrito</h3>
               }
             </div>
 

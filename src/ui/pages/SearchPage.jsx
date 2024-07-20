@@ -15,8 +15,9 @@ export const SearchPage = () => {
 
   const [isDisabled, setIsDisabled] = useState( false );
 
-  const { isSearchloaded, searchProducts } = useSelector( state => state.productsUser );
+  const { isSearchloaded, searchProducts, totalProductsUser } = useSelector( state => state.productsUser );
   const activeProducts = searchProducts.filter( products => products.isSoldOut === false );
+  const defaultProducts = totalProductsUser.filter( product => product.category === 'Rebajas' )
 
   const { searchProduct } = useProductData();
   const { validateEmptyInput, validateSearchProductForm } = useValidateForm();
@@ -42,6 +43,8 @@ export const SearchPage = () => {
           searchProduct( form ) &&
             enableActions()
   };
+
+  console.log( defaultProducts );
 
   return (
     <section className="imageHeroeContainer">
@@ -72,13 +75,13 @@ export const SearchPage = () => {
           <div
             className={ resultContainer }
           >
-            <h2> { isSearchloaded ? 'Resultados para tu última búsqueda:' : 'Busca una prenda de tu interés' } </h2>
+            <h3> { isSearchloaded ? 'Resultados de tu última búsqueda:' : 'Busca una prenda de tu interés o explora nuestra sugerencia del día' } </h3>
             {
-              isSearchloaded &&
-                <CategoryCatalog 
-                  products={ activeProducts }
-                  keyValue={ activeProducts }
-                />
+              <CategoryCatalog 
+                products={ isSearchloaded ? activeProducts : defaultProducts }
+                keyValue={ isSearchloaded ? activeProducts : defaultProducts }
+                isSearchloaded={ isSearchloaded }
+              />
             }
           </div>
         </div>

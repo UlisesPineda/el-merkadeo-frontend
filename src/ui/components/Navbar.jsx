@@ -6,25 +6,20 @@ import {
   siteNavbar,
   menuContainer, 
   linkMenu,
-  linkMenuWhite,
   linkMenuBlack,
   logoDesktop,
   logoDesktopBlack,
-  logoDesktopWhite,
   iconsMenu,
-  cartWhite,
-  userWhite,
-  searchWhite,
   cartBlack,
   userBlack,
   searchBlack,
   siteNavbarWhite,
-  logoutWhite,
   logoutBlack,
-  settingsWhite,
   settingsBlack,
   cartNumberInactive,
   cartNumberActive,
+  siteNavbarScrolled,
+  logoDesktopActive,
 } from './styles/Navbar.module.css';
 
 import { useUserAuth } from '../hooks';
@@ -64,6 +59,7 @@ export const Navbar = () => {
       <nav className={`
         ${ siteNavbar }
         ${ isScrolled ? siteNavbarWhite : '' }
+        ${ isScrolled ? siteNavbarScrolled : '' }
       `}>
         <div className={ menuContainer }>
           <NavLink 
@@ -71,7 +67,7 @@ export const Navbar = () => {
             title='Catálogo 2024'
             className={`
               ${ linkMenu }
-              ${ isScrolled ? linkMenuBlack : linkMenuWhite }
+              ${ linkMenuBlack }
             `}
           >
             COLECCIÓN 2024
@@ -83,7 +79,8 @@ export const Navbar = () => {
             title='El Merkadeo'
             className={`
               ${ logoDesktop } 
-              ${ isScrolled ? logoDesktopBlack : logoDesktopWhite }
+              ${ logoDesktopBlack }
+              ${ isScrolled ? logoDesktopActive : '' }
             `} 
           ></Link>
         </div>
@@ -93,7 +90,7 @@ export const Navbar = () => {
             title='Buscar en la tienda'
             className={`
               ${ iconsMenu } 
-              ${ isScrolled ? searchBlack : searchWhite }
+              ${ searchBlack }
             `} 
           ></Link>
           <Link
@@ -101,7 +98,7 @@ export const Navbar = () => {
             title='Carrito'
             className={`
               ${ iconsMenu } 
-              ${ isScrolled ? cartBlack : cartWhite }
+              ${ cartBlack }
             `} 
           >
             <span
@@ -120,7 +117,7 @@ export const Navbar = () => {
                     title='Administra tu cuenta'
                     className={`
                       ${ iconsMenu }
-                      ${ isScrolled ? settingsBlack : settingsWhite }
+                      ${ settingsBlack }
                     `}
                   />
                   <Link
@@ -129,7 +126,7 @@ export const Navbar = () => {
                     onClick={ startLogoutUser }
                     className={`
                       ${ iconsMenu } 
-                      ${ isScrolled ? logoutBlack : logoutWhite }
+                      ${ logoutBlack }
                     `} 
                   ></Link>
                 </>
@@ -139,7 +136,7 @@ export const Navbar = () => {
                   title='Inicia sesión'
                   className={`
                     ${ iconsMenu } 
-                    ${ isScrolled ? userBlack : userWhite }
+                    ${ userBlack }
                   `} 
                 ></Link>
           }

@@ -13,6 +13,7 @@
 .loginFormContainer h2 {
     width: 40%;
     text-align: center;
+    color: var(--text-color);
 }
 
 @media ( max-width: 480px ) {

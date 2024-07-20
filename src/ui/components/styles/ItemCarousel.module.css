@@ -1,6 +1,6 @@
 .carouselContainer {
     height: 80%;
-    width: 60%;
+    width: 75%;
 }
 .carouselWrapper {
     position: relative;
@@ -31,7 +31,7 @@
     top: -11px;
     font-size: 30px;
     background-color: transparent;
-    color: white;
+    color: var(--dark-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,7 +63,7 @@
     width: 10px;
     border-radius: 50%;
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid var(--purple-background);
     display: inline-block;
     transition: background-color 1.4s ease-in-out, border-color 1.4s ease-in-out;
 }
@@ -71,9 +71,17 @@
     background-color: var(--purple-background);
     border-color: var(--purple-background);
 }
-@media ( max-width: 480px ) {
+@media ( max-width: 1024px ) {
     .carouselContainer {
-        height: 38vh;
+        width: 100%;
+    }
+}
+@media ( max-width: 480px ) {
+    .carouselPagination {
+        bottom: -10%;
+    }
+    .carouselContainer {
+        height: 35vh;
         width: 100%;
         top: 13vh;
         left: 5vw;

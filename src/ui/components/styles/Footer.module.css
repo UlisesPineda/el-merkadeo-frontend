@@ -1,7 +1,9 @@
 .siteFooter {
     min-height: 20vh;
     width: 100%;
-    border-top: 2px solid rgba(28, 28, 28, .1);
+    /* border-top: 2px solid rgba(28, 28, 28, .1); */
+    /* border-top: 2px solid white; */
+    border-top: 2px solid var(--purple-background);
     padding-bottom: 30px;
     background-color: var(--white-background);
 }
@@ -114,5 +116,8 @@
     .iconCard {
         height: 25px;
         width: 40px;
+    }
+    .blockFooterContainer .blockFooterOne a {
+        font-size: 10px;
     }
 }

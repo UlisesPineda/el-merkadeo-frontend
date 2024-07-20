@@ -25,7 +25,7 @@
 }
 .menuLinksContainer a {
     width: 118px;
-    color: white;
+    color: var(--dark-color);
     text-decoration: none;
     margin: 10px 0;
     padding: 5px 20px 7px 20px;
