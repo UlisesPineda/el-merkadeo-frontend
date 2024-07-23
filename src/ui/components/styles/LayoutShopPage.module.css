@@ -29,11 +29,12 @@
     text-decoration: none;
     margin: 10px 0;
     padding: 5px 20px 7px 20px;
-    transition: background-color .7s ease;
+    transition: background-color .7s ease, color .7s ease;
 }
 @media ( min-width: 1024px ) {
     .menuLinksContainer a:hover {
         background-color: var(--purple-background);
+        color: white;
     }    
 }
 .categoryContainer {

@@ -7,7 +7,7 @@
     --white-background: #e0e0e0;
     --dark-color: #1c1c1c;
     --purple-color: #59118e;
-    --purple-background: rgba(67, 37, 89, 0.5);
+    --purple-background: rgba(67, 37, 89, 0.6);
 }
 body {
     overflow-x: hidden;
@@ -23,18 +23,18 @@ body {
     background-position: center;
 }
 html {
-    scrollbar-width: thin !important;
-    scrollbar-color: var(--purple-background) var(--grey-background);
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple-background) transparent;
 }
 html::-webkit-scrollbar {
     width: 10px;
 }
 html::-webkit-scrollbar-track {
-    background-color: var(--grey-background);
+    background-color: transparent;
 }
 html::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    border: 1px solid var(--grey-background);
+    border-radius: 5px;
+    border: 1px solid var(--purple-background);
     background-color: var(--purple-background);
 }
  
@@ -74,4 +74,5 @@ html::-webkit-scrollbar-thumb {
 }
 .active {
     background-color: var(--purple-background);
+    color: white !important;
 }

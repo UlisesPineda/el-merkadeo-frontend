@@ -1,9 +1,8 @@
 .siteFooter {
     min-height: 20vh;
     width: 100%;
-    /* border-top: 2px solid rgba(28, 28, 28, .1); */
-    /* border-top: 2px solid white; */
-    border-top: 2px solid var(--purple-background);
+    /* border-top: 2px solid var(--purple-background); */
+    border-top: 2px solid white;
     padding-bottom: 30px;
     background-color: var(--white-background);
 }
@@ -64,6 +63,7 @@
     border: none;
     background-color: var(--dark-color);
     color: white;
+    cursor: pointer;
 }
 .iconCard {
     height: 30px;

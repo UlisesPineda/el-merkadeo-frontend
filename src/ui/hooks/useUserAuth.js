@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+
 import elMerkadeoAPI from "../../api/elMerkadeoAPI";
 import { useAlertMessage } from "./useAlertMessage";
 import { onLoadCart, onLoadPurchasedCart, onLoginUser, onLogoutCart, onLogoutUser } from "../../store/slices";
@@ -39,7 +40,7 @@ export const useUserAuth = () => {
             const cartOnStorage = JSON.parse( localStorage.getItem('cart') );
             if( cartOnStorage ){
                 const cartUpdated = data.cart.concat( cartOnStorage );
-                await elMerkadeoAPI.post('products/add-new-cart', cartUpdated);
+                await elMerkadeoAPI.post('/products/add-new-cart', cartUpdated);
                 dispatch( onLoadCart( cartUpdated ) );
                 dispatch( onLoadPurchasedCart( data.purchased ) );
                 localStorage.removeItem('cart');

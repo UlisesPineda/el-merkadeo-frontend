@@ -113,6 +113,8 @@ export const Footer = () => {
             <a href="https://unsplash.com/es/@melbinjacob" target='_blank' rel='nofollow noopener noreferrer'>Melbin Jacob</a>
             <a href="https://unsplash.com/es/@concretelies_photography" target='_blank' rel='nofollow noopener noreferrer'>Emmeline T.</a>
             <a href="https://unsplash.com/es/@photosbychalo" target='_blank' rel='nofollow noopener noreferrer'>Chalo Garcia</a>
+            <a href="https://unsplash.com/es/@fromsarahtophotography" target='_blank' rel='nofollow noopener noreferrer'>Sarah Crego</a>
+            <a href="https://unsplash.com/es/@pieschwarzler" target='_blank' rel='nofollow noopener noreferrer'>Pietra Schwarzler</a>
           </div>
         </div>
         <div className={ blockFooterContainer }>

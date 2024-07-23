@@ -5,12 +5,13 @@ import {
     disabledButton,
     forgotLink,
 } from './styles/LoginForm.module.css';
+
+import { useLocation } from 'react-router-dom';
 import { useAdminAuth, useForm, useUserAuth, useValidateForm } from '../hooks';
 
-export const ResetPasswordForm = ({
-    handleTypeForm,
-    isUserActive,   
-}) => {
+export const ResetPasswordForm = ({ handleTypeForm }) => {
+
+    const { pathname } = useLocation();
 
     const { reqChangeUserPassword } = useUserAuth();
     const { reqChangeAdminPassword } = useAdminAuth();
@@ -25,10 +26,10 @@ export const ResetPasswordForm = ({
     } = useForm({ email: '' });
 
     const actionForm = async() => {
-        if( isUserActive ) {
+        if( pathname === '/login' ) {
           return await reqChangeUserPassword( form );
         }
-        else {
+        if ( pathname === '/login-admin' ) {
           return await reqChangeAdminPassword( form );
         }
       };    
@@ -76,6 +77,5 @@ export const ResetPasswordForm = ({
 };
 
 ResetPasswordForm.propTypes = {
-    isUserActive: PropTypes.bool,
     handleTypeForm: PropTypes.func,
 };

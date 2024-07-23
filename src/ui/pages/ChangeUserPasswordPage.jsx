@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import {
     mainContainer,
@@ -54,13 +54,13 @@ export const ChangeUserPasswordPage = () => {
             {
                 isReseted
                     ?
-                        <Link 
+                        <a 
                             className={ linkLoginAdmin }
-                            to='/login'
+                            href='/login'
                             title='Inicia sesión de administrador'
                         >
                             INICIAR SESIÓN
-                        </Link>
+                        </a>
                     :
                         <form
                             className={ adminForm }

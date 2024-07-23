@@ -27,15 +27,16 @@
     gap: 25px;
 }
 .linkMenu {
-    text-decoration: none;
-    white-space: nowrap;
-    position: relative;
-    transition: background-color .7s ease;
     padding: 6px 15px;
+    position: relative;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color .7s ease, color .7s ease;
 }
 @media ( min-width: 1024px ) {
     .linkMenu:hover {
         background-color: var(--purple-background);
+        color: white;
     }
 }
 .linkMenuBlack {

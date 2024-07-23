@@ -10,6 +10,7 @@
     background-color: var(--purple-background);
 }
 .formContainer label {
+    color: white;
     margin-bottom: 5px;
     text-transform: uppercase;
 }
@@ -29,7 +30,6 @@
 .formContainer button {
     width: 60%;
     margin-bottom: 10px;
-    /* height: 40px; */
     padding: 10px 0;
     color: white;
     background-color: var(--purple-color);
@@ -55,6 +55,7 @@
     margin-top: 10px;
     text-decoration: underline;
     cursor: pointer;
+    color: white;
 }
 .checkboxContainer {
     font-size: 12px;
@@ -97,5 +98,10 @@
     .formContainer div {
         width: 80%;
     }
+}
 
+@media ( min-width: 481px ) and ( max-width: 1024px ) {
+    .formContainer {
+        width: 60%;
+    }
 }

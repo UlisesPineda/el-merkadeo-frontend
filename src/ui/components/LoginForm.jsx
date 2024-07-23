@@ -10,11 +10,8 @@ import {
 } from './styles/LoginForm.module.css';
 import { useAdminAuth, useForm, useUserAuth, useValidateForm } from '../hooks';
 
-export const LoginForm = ({ 
-  isUserActive,
-  handleTypeForm,
-  handleResetPassForm,   
-}) => {
+export const LoginForm = ({ handleTypeForm, handleResetPassForm }) => {
+
   const { pathname } = useLocation();
 
   const { loginAdmin } = useAdminAuth();
@@ -30,10 +27,10 @@ export const LoginForm = ({
   } = useForm({ email: '', password: '' });
 
   const actionForm = async() => {
-    if( isUserActive ) {
+    if( pathname === '/login' ) {
       return await loginUser( form );
     }
-    else {
+    if ( pathname === '/login-admin' ) {
       return await loginAdmin( form );
     }
   };
@@ -88,6 +85,7 @@ export const LoginForm = ({
         ¿Aún no tienes cuenta?<br />
         <span
           onClick={ handleTypeForm }
+          title='Crea una cuenta'
         >
           Regístrate
         </span>
@@ -95,6 +93,7 @@ export const LoginForm = ({
       <span
         className={ forgotLink }
         onClick={ handleResetPassForm }
+        title='Solicita un nuevo password'
       >
         ¿Olvidaste tu password?
       </span>
@@ -103,7 +102,6 @@ export const LoginForm = ({
 };
 
 LoginForm.propTypes = {
-    isUserActive: PropTypes.bool,
     handleTypeForm: PropTypes.func,
     handleResetPassForm: PropTypes.func,
 };
