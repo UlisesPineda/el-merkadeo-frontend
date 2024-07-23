@@ -53,7 +53,6 @@ export const AppRouter = () => {
         getPromos();
         getProducts();
         getCategories();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useLayoutEffect(() => {
