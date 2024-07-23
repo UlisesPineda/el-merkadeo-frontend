@@ -11,8 +11,8 @@ export const useAdminAuth = () => {
         try {
             const { data } = await elMerkadeoAPI.post('/auth-admin/login-admin', { email, password });
 
-            // document.cookie = `auth-token=${ data.authToken }; max-age=1200; domain=.elmerkadeo.com; path=/; samesite=none; secure`;
-            document.cookie = `auth-token=${ data.authToken }; max-age=1200`;
+            document.cookie = `auth-token=${ data.authToken }; max-age=1200; domain=.elmerkadeo.com; path=/; samesite=none; secure`;
+            // document.cookie = `auth-token=${ data.authToken }; max-age=1200`;
             window.location.href = import.meta.env.VITE_ADMIN_SITE_URL;
             return true;
         } catch (error) {
